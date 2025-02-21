@@ -1,0 +1,41 @@
+/* А тут CSS */
+.box {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    max-width: 450px;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px #ccc;
+  }
+  .image-container {
+    display: flex;
+    flex-direction: row;
+  }
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    gap: 40px;
+    align-items: stretch;
+  }
+  .text-field {
+    /* spacing={3}
+              direction={"column"}
+              justify={"center"}
+              alignItems={"center"} */
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  .text-field:focus {
+    border-color: rgba(4, 51, 101, 0.534);
+  }
+  

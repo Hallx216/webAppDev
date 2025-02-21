@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookMyBus - Ticket Details</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            width: 100%;
+            background: #0F3557;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .navbar h2 {
+            margin: 0;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 80px;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .passenger-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .passenger {
+            width: 48%;
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .final-amount {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .proceed-btn {
+            background: #0F3557;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar bg-body-tertiary fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">BookMyBus.com</a>
+        </div>
+      </nav>
+    <div class="container">
+        <div class="card">
+            <h2>Ticket Details</h2>
+            <div class="passenger-row">
+                <div class="passenger">
+                    <h3>Passenger 1 | Seat No 1</h3>
+                    <p><strong>Name:</strong> John Doe</p>
+                    <p><strong>Age:</strong> 28</p>
+                    <p><strong>Gender:</strong> Male</p>
+                    <p><strong>Email:</strong> johndoe@example.com</p>
+                    <p><strong>Phone:</strong> 123-456-7890</p>
+                </div>
+                <div class="passenger">
+                    <h3>Passenger 2 | Seat No 2</h3>
+                    <p><strong>Name:</strong> Jane Doe</p>
+                    <p><strong>Age:</strong> 26</p>
+                    <p><strong>Gender:</strong> Female</p>
+                    <p><strong>Email:</strong> janedoe@example.com</p>
+                    <p><strong>Phone:</strong> 987-654-3210</p>
+                </div>
+            </div>
+            <div class="final-amount">Final Amount: $50</div>
+            <button class="proceed-btn">Proceed to Payment</button>
+        </div>
+    </div>
+</body>
+</html>
