@@ -66,6 +66,22 @@
             background-image: url("../images/Steerwheel.png");
             background-size: cover;
         }
+        .seat.selected { /* Slight blur effect */
+    position: relative;
+}
+
+/* Add a checkmark when seat is selected */
+.seat.selected::after {
+    content: "✔";
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
     </style>
 </head>
 <body>
@@ -330,10 +346,51 @@
       </label>
         </div>
         <div style="padding-left: 100px;">
-        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#drawer" class="btn btn-outline-secondary">Proceed to Payment</button>
+        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#drawer" onclick="saveBookingDetails(event)" class="btn btn-outline-secondary">Proceed to Payment</button>
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+  // Function to save form data to localStorage
+  function saveBookingDetails() {
+    // Get form data
+    const firstName = document.getElementById('floatingInput').value;
+    const lastName = document.querySelector('input[placeholder="Last name"]').value;
+    const gender = document.querySelector('input[name="options"]:checked').value;
+    const username = document.querySelector('input[aria-describedby="basic-addon1"]').value;
+    const phoneNumber = document.getElementById('phoneNumber').value;
+    const homeAddress = document.getElementById('homeAddress').value;
+    const destinationAddress = document.getElementById('destinationAddress').value;
+    const finalAmount = document.querySelector('input[aria-label="Disabled input example"]').value;
+
+    // Create an object to store the booking details
+    const bookingDetails = {
+      firstName,
+      lastName,
+      gender,
+      username,
+      phoneNumber,
+      homeAddress,
+      destinationAddress,
+      finalAmount
+    };
+
+    // Save the object to localStorage
+    localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
+
+    // Optionally, alert the user or confirm saving
+    alert('Booking details saved successfully!');
+  }
+
+  // Add an event listener to the submit button to handle the form submission
+  document.querySelector('button[data-bs-target="#drawer"]').addEventListener('click', (e) => {
+    e.preventDefault();  // Prevent default form submission
+    saveBookingDetails(); // Call function to save booking details
+  });
+</script>
+
+  <script src="../javascript/seatSelection.js"></script>
+
 </body>
 </html>

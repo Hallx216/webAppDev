@@ -97,13 +97,13 @@
 
     <div class="bus-container">
         <!-- Bus 1 -->
-        <div class="bus-card">
+        <div class="bus-card" style="width: 1200px;">
             <div class="bus-info">
                 <h3 style="color: rgba(0, 0, 0, 0.5);">Bus No: 101</h3>
-                <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>From:</strong> New York    <i class="bi bi-geo-alt text-danger" style="
+                <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>From:</strong>     <i class="bi bi-geo-alt text-danger" style="
                     padding-left: 200px;
-                "></i> <strong>To:</strong> Washington DC</p>
-                <p><i class="bi bi-clock-fill text-warning"></i> Departure: 9:00 AM  <i class="bi bi-alarm-fill text-danger" style="
+                "></i> <strong>To:</strong></p>
+                <p><i class="bi bi-clock-fill text-warning"> </i> Departure: 9:00 AM  <i class="bi bi-alarm-fill text-danger" style="
                     padding-left: 175px;
                 "></i> Arrival: 10:00 PM</p>
                 <p><i class="bi bi-person-fill text-success"></i> Available Seats: <strong>20</strong></p>
@@ -113,12 +113,12 @@
         </div>
 
         <!-- Bus 2 -->
-        <div class="bus-card">
+        <div class="bus-card" style="width: 1200px;">
             <div class="bus-info">
                 <h3 style="color: rgba(0, 0, 0, 0.5);">Bus No: 202</h3>
-                <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>From:</strong> New York    <i class="bi bi-geo-alt text-danger" style="
+                <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>From:</strong>     <i class="bi bi-geo-alt text-danger" style="
                     padding-left: 200px;
-                "></i> <strong>To:</strong> Washington DC</p>
+                "></i> <strong>To:</strong> </p>
                 <p><i class="bi bi-clock-fill text-warning"></i> Departure: 9:00 AM  <i class="bi bi-alarm-fill text-danger" style="
                     padding-left: 175px;
                 "></i> Arrival: 10:00 PM</p>
@@ -131,5 +131,35 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to get query parameters from URL
+            function getQueryParams() {
+                const params = new URLSearchParams(window.location.search);
+                return {
+                    source: params.get("source") || "Not Selected",
+                    destination: params.get("destination") || "Not Selected",
+                    date: params.get("date") || "Not Provided",
+                };
+            }
+    
+            // Fetch selected values from URL
+            const params = getQueryParams();
+    
+            // Find all bus cards and update the details dynamically
+            document.querySelectorAll(".bus-card").forEach(busCard => {
+                const fromLocation = busCard.querySelector(".bus-info p strong:first-of-type");
+                const toLocation = busCard.querySelector(".bus-info p strong:nth-of-type(2)");
+                const journeyDate = busCard.querySelector(".bus-info p:last-of-type");
+    
+                if (fromLocation && toLocation && journeyDate) {
+                    fromLocation.textContent = params.source;  // Update Source
+                    toLocation.textContent = params.destination;  // Update Destination
+                    journeyDate.innerHTML = `<i class="bi bi-calendar-event-fill text-info"></i> Date of Journey: ${params.date}`;  // Update Date
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>
