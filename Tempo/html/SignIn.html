@@ -34,10 +34,10 @@
     <div class="login-container">
         <img src="../images/caravan-solid.svg" alt="Company Logo" style="height: 60px;" class="mb-3">
         <h3>Sign in</h3>
-        <input type="text" class="form-control mb-3" placeholder="Email, phone, or Skype" id="email" onblur="validateEmail()">
+        <input type="text" class="form-control mb-3" placeholder="Email, phone, or Skype" id="email" onblur="emailValidation()">
         <p id="email-message"></p>
     <a href="#" class="d-block mb-3">Can't access your account?</a>
-    <button class="btn btn-primary w-100" onclick="handleSubmit(event)">Next</button>
+    <button class="btn btn-primary w-100" onclick="signInNextHandle(event)">Next</button>
     <div class="footer-text mt-3">
             Welcome to BookMyBus.com
         </div>

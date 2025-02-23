@@ -34,7 +34,7 @@
   <div class="login-container" style="width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center;">
     <img src="../images/caravan-solid.svg" alt="Company Logo" style="height: 60px;" class="mb-3">
     <h3>Sign Up</h3>
-    <form id="signUpForm" onsubmit="validateForm1(event)">
+    <form id="signUpForm" onsubmit="signUpFormValidation(event)">
       <div class="offcanvas-body">
         <div class="row g-3">
           <div class="col">
@@ -79,26 +79,20 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JavaScript for form validation and storing data in localStorage -->
   <script>
-    function validateForm1(event) {
-      event.preventDefault();  // Prevent form submission
-
-      // Get form data
+    function signUpFormValidation(event) {
+      event.preventDefault();
       const firstName = document.getElementById("firstName").value;
       const lastName = document.getElementById("lastName").value;
       const username = document.getElementById("username").value;
       const phoneNumber = document.getElementById("phoneNumber").value;
       const gender = document.querySelector('input[name="options"]:checked') ? document.querySelector('input[name="options"]:checked').value : '';
 
-      // Basic form validation (make sure all fields are filled)
       if (!firstName || !lastName || !username || !phoneNumber || !gender) {
         document.getElementById("errorMessage").innerHTML = "<p style='color:red;'>Please fill out all fields.</p>";
         return;
       }
 
-      // Prepare data for localStorage
       const userData = {
         firstName,
         lastName,
@@ -107,15 +101,8 @@
         gender
       };
 
-      // Store the data in localStorage
       localStorage.setItem("userData", JSON.stringify(userData));
-
-      // Optional: Show success message
-      document.getElementById("errorMessage").innerHTML = "<p style='color:green;'>User data saved successfully!</p>";
-
-      // Optional: Redirect or reset the form (e.g., clear inputs or navigate to another page)
-      // window.location.href = "dashboard.html";  // Redirect to another page (optional)
-      // document.getElementById("signUpForm").reset();  // Clear form fields (optional)
+      document.getElementById("errorMessage").innerHTML = "<p style='color:green;'>Data saved locally</p>";
     }
   </script>
 </body>

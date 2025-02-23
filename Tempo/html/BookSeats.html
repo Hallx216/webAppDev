@@ -337,7 +337,7 @@
         </div>
         <div>
           <label for="Final Amount" class="form-label">Final Amount</label>
-        <input class="form-control" type="text" placeholder="400$" aria-label="Disabled input example" disabled>
+        <input class="form-control" type="text" placeholder="Rs500" aria-label="Disabled input example" disabled>
         </div>
         <div class="mb-3" style="padding-top: 10px;">
         <input class="form-check-input" type="checkbox" value="" required>
@@ -346,15 +346,15 @@
       </label>
         </div>
         <div style="padding-left: 100px;">
-        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#drawer" onclick="saveBookingDetails(event)" class="btn btn-outline-secondary">Proceed to Payment</button>
+        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#drawer" onclick="booikingDetailsCapture(event)" class="btn btn-outline-secondary">Proceed to Payment</button>
         </div>
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-  // Function to save form data to localStorage
-  function saveBookingDetails() {
-    // Get form data
+
+  function booikingDetailsCapture() {
+
     const firstName = document.getElementById('floatingInput').value;
     const lastName = document.querySelector('input[placeholder="Last name"]').value;
     const gender = document.querySelector('input[name="options"]:checked').value;
@@ -364,7 +364,6 @@
     const destinationAddress = document.getElementById('destinationAddress').value;
     const finalAmount = document.querySelector('input[aria-label="Disabled input example"]').value;
 
-    // Create an object to store the booking details
     const bookingDetails = {
       firstName,
       lastName,
@@ -376,17 +375,13 @@
       finalAmount
     };
 
-    // Save the object to localStorage
     localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
-
-    // Optionally, alert the user or confirm saving
-    alert('Booking details saved successfully!');
+    alert(' Details saved locally!');
   }
 
-  // Add an event listener to the submit button to handle the form submission
   document.querySelector('button[data-bs-target="#drawer"]').addEventListener('click', (e) => {
-    e.preventDefault();  // Prevent default form submission
-    saveBookingDetails(); // Call function to save booking details
+    e.preventDefault();
+    booikingDetailsCapture();
   });
 </script>
 
