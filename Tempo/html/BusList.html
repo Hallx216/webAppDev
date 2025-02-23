@@ -101,7 +101,7 @@
             <div class="bus-info">
                 <h3 style="color: rgba(0, 0, 0, 0.5);">Bus No: 101</h3>
                 <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>From:</strong>     <i class="bi bi-geo-alt text-danger" style="
-                    padding-left: 200px;
+                    padding-left:278px;
                 "></i> <strong>To:</strong></p>
                 <p><i class="bi bi-clock-fill text-warning"> </i> Departure: 9:00 AM  <i class="bi bi-alarm-fill text-danger" style="
                     padding-left: 175px;
@@ -117,7 +117,7 @@
             <div class="bus-info">
                 <h3 style="color: rgba(0, 0, 0, 0.5);">Bus No: 202</h3>
                 <p><i class="bi bi-geo-alt-fill text-primary"></i> <strong>From:</strong>     <i class="bi bi-geo-alt text-danger" style="
-                    padding-left: 200px;
+                    padding-left:278px;
                 "></i> <strong>To:</strong> </p>
                 <p><i class="bi bi-clock-fill text-warning"></i> Departure: 9:00 AM  <i class="bi bi-alarm-fill text-danger" style="
                     padding-left: 175px;
@@ -142,16 +142,16 @@
                     date: params.get("date") || "Not Provided",
                 };
             }
-    
+
             // Fetch selected values from URL
             const params = getQueryParams();
-    
+
             // Find all bus cards and update the details dynamically
             document.querySelectorAll(".bus-card").forEach(busCard => {
                 const fromLocation = busCard.querySelector(".bus-info p strong:first-of-type");
                 const toLocation = busCard.querySelector(".bus-info p strong:nth-of-type(2)");
                 const journeyDate = busCard.querySelector(".bus-info p:last-of-type");
-    
+
                 if (fromLocation && toLocation && journeyDate) {
                     fromLocation.textContent = params.source;  // Update Source
                     toLocation.textContent = params.destination;  // Update Destination
@@ -160,6 +160,6 @@
             });
         });
     </script>
-    
+
 </body>
 </html>
